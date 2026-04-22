@@ -1,3 +1,5 @@
+from logo import logo
+
 def add(a,b):
     return a + b
 
@@ -30,7 +32,7 @@ operations = {
 }
 
 def calculator():
-
+    print(logo)
     should_continue = True
     a = float(input('Pick a number: '))
     while should_continue:
@@ -50,6 +52,7 @@ def calculator():
             a = result
         else:
             should_continue = False
+            print('\n' * 5)
 
     restart = input('Do you want to start a new calculation ? y/n: ')
     if restart == 'y':
