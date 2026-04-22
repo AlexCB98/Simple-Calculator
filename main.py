@@ -29,19 +29,29 @@ operations = {
     '//': floor_div,
 }
 
-should_continue = True
-a = int(input('Pick a number: '))
-while should_continue:
-    for key in operations:
-        print(key)
-    op = input('What operation do you want to proceed?: ')
-    b = int(input('Pick the second number: '))
-    result = operations[op](a, b)
-    print(f'{a} {op} {b} = {result}')
+def calculator():
 
-    choice = input(f'Type "y" to continue calculation with {result}, or type "n" to start a new calculation: ')
+    should_continue = True
+    a = float(input('Pick a number: '))
+    while should_continue:
+        for key in operations:
+            print(key)
+        op = input('What operation do you want to proceed?: ')
+        b = float(input('Pick the second number: '))
+        result = operations[op](a, b)
+        print(f'{a} {op} {b} = {result}')
 
-    if choice == 'y':
-        a = result
+        choice = input(f'Do you want to continue calculation with {result} ? Type y/n:  ')
+
+        if choice == 'y':
+            a = result
+        else:
+            should_continue = False
+
+    restart = input('Do you want to start a new calculation ? y/n: ')
+    if restart == 'y':
+        calculator()
     else:
-        should_continue = False
+        print('Thanks for using the calculator.')
+
+calculator()
