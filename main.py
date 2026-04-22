@@ -37,6 +37,9 @@ def calculator():
         for key in operations:
             print(key)
         op = input('What operation do you want to proceed?: ')
+        if op not in operations:
+            print("Invalid operation. Try again.")
+            continue
         b = float(input('Pick the second number: '))
         result = operations[op](a, b)
         print(f'{a} {op} {b} = {result}')
