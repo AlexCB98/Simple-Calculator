@@ -43,6 +43,10 @@ def calculator():
             print("Invalid operation. Try again.")
             continue
         b = float(input('Pick the second number: '))
+        if b == 0 and op in ['/', '//', '%']:
+            print("You can't do that operation with 0.")
+            continue
+
         result = operations[op](a, b)
         print(f'{a} {op} {b} = {result}')
 
